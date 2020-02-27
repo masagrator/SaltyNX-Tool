@@ -32,6 +32,35 @@ bool CheckPort () {
 	else return true;
 }
 
+void renametocheatstempcontents() {
+	char cheatspath[64];
+	char cheatspathtemp[64];
+	DIR *dirp;
+	struct dirent *dp;
+	while(1) {
+		dirp = opendir("sdmc:/Atmosphere/contents/");
+		while (dirp) {
+			if ((dp = readdir(dirp)) != NULL) {
+				snprintf(cheatspath, sizeof cheatspath, "sdmc:/Atmosphere/contents/%s/cheats", dp->d_name);
+				snprintf(cheatspathtemp, sizeof cheatspathtemp, "%stemp", cheatspath);
+				rename(cheatspath, cheatspathtemp);
+				printf(".");
+				consoleUpdate(NULL);
+				char cheatspath = "";
+				char cheatspathtemp = "";
+			}
+			else {
+				FILE* renametocheats = fopen("sdmc:/SaltySD/flags/renametocheats.flag", "w");
+				fclose(renametocheats);
+				closedir(dirp);
+				return;
+			}
+		}
+		closedir(dirp);
+		return;
+	}
+}
+
 void renametocheatstemp() {
 	renametocheatstempcontents();
 	char cheatspath[64];
@@ -62,7 +91,7 @@ void renametocheatstemp() {
 	}
 }
 
-void renametocheatstempcontents() {
+void renametocheatscontents() {
 	char cheatspath[64];
 	char cheatspathtemp[64];
 	DIR *dirp;
@@ -73,16 +102,15 @@ void renametocheatstempcontents() {
 			if ((dp = readdir(dirp)) != NULL) {
 				snprintf(cheatspath, sizeof cheatspath, "sdmc:/Atmosphere/contents/%s/cheats", dp->d_name);
 				snprintf(cheatspathtemp, sizeof cheatspathtemp, "%stemp", cheatspath);
-				rename(cheatspath, cheatspathtemp);
+				rename(cheatspathtemp, cheatspath);
 				printf(".");
 				consoleUpdate(NULL);
 				char cheatspath = "";
 				char cheatspathtemp = "";
 			}
 			else {
-				FILE* renametocheats = fopen("sdmc:/SaltySD/flags/renametocheats.flag", "w");
-				fclose(renametocheats);
 				closedir(dirp);
+				remove("sdmc:/SaltySD/flags/renametocheats.flag");
 				return;
 			}
 		}
@@ -102,34 +130,6 @@ void renametocheats() {
 		while (dirp) {
 			if ((dp = readdir(dirp)) != NULL) {
 				snprintf(cheatspath, sizeof cheatspath, "sdmc:/Atmosphere/titles/%s/cheats", dp->d_name);
-				snprintf(cheatspathtemp, sizeof cheatspathtemp, "%stemp", cheatspath);
-				rename(cheatspathtemp, cheatspath);
-				printf(".");
-				consoleUpdate(NULL);
-				char cheatspath = "";
-				char cheatspathtemp = "";
-			}
-			else {
-				closedir(dirp);
-				remove("sdmc:/SaltySD/flags/renametocheats.flag");
-				return;
-			}
-		}
-		closedir(dirp);
-		return;
-	}
-}
-
-void renametocheatscontents() {
-	char cheatspath[64];
-	char cheatspathtemp[64];
-	DIR *dirp;
-	struct dirent *dp;
-	while(1) {
-		dirp = opendir("sdmc:/Atmosphere/contents/");
-		while (dirp) {
-			if ((dp = readdir(dirp)) != NULL) {
-				snprintf(cheatspath, sizeof cheatspath, "sdmc:/Atmosphere/contents/%s/cheats", dp->d_name);
 				snprintf(cheatspathtemp, sizeof cheatspathtemp, "%stemp", cheatspath);
 				rename(cheatspathtemp, cheatspath);
 				printf(".");
