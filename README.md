@@ -23,4 +23,4 @@ If you want to use SaltyNX plugins with cheats, You need to go in this order:
 If SaltyNX was not injected properly or at all, you will see... Red Screen of Death.
 ![error_image](https://github.com/masagrator/SaltyNX-Tool/blob/master/error.jpg?raw=true)
 
-If you will see red text with first line "SaltyNX was not injected!!", check if files were copied properly. Otherwise it means CFW can't handle it.
+If you will see red text with first line "SaltyNX is not injected!!", check if files were copied properly. Otherwise it means CFW can't handle it.
