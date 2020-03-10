@@ -2,6 +2,8 @@
 To manage functions of this SaltyNX fork
 https://github.com/masagrator/SaltyNX
 
+To use only in Applet mode. Title replacement mode in 99.9% of cases will block function responsible for checking if SaltyNX is alive.
+
 # How to use cheats in Atmosphere
 
 Cheats loaded by Atmosphere when game is booting are crashing OS. To avoid it I added to SaltyNX-Tool function for renaming cheats folders in Atmosphere/titles and in Atmosphere/contents.
