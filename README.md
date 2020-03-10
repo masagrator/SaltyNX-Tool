@@ -2,7 +2,7 @@
 To manage functions of this SaltyNX fork
 https://github.com/masagrator/SaltyNX
 
-To use only in Applet mode. Title replacement mode in 99.9% of cases will block function responsible for checking if SaltyNX is alive.
+To use only in Applet mode. Title replacement mode in 99.9% of cases will block function responsible for checking if SaltyNX is alive and can even crash SaltyNX.
 
 # How to use cheats in Atmosphere
 
