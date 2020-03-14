@@ -1,22 +1,8 @@
 # SaltyNX-Tool
-To manage functions of this SaltyNX fork
+To manage functions of this SaltyNX fork min. 0.1.2a
 https://github.com/masagrator/SaltyNX
 
 To use only in Applet mode. Title replacement mode in 99.9% of cases will block function responsible for checking if SaltyNX is alive and can even crash SaltyNX.
-
-# How to use cheats in Atmosphere
-
-Cheats loaded by Atmosphere when game is booting are crashing OS. To avoid it I added to SaltyNX-Tool function for renaming cheats folders in Atmosphere/titles and in Atmosphere/contents.
-
-If you want to use SaltyNX plugins with cheats, You need to go in this order:
-
->Disable Cheats in SaltyNX-Tool
->
->Run game and wait for first sign of game loading after Nintendo logo will disappear
->
->Enable Cheats in SaltyNX-Tool
->
->Use Edizon or Checkpoint to apply cheats
 
 ---
 
