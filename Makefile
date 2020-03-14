@@ -41,8 +41,7 @@ TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	source
 APP_AUTHOR	:=	"MasaGratoR"
-APP_VERSION	:=	"1.0.0"
-#ROMFS	:=	romfs
+APP_VERSION	:=	"1.0.1"
 
 #---------------------------------------------------------------------------------
 # options for code generation
