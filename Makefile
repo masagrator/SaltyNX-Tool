@@ -41,7 +41,7 @@ TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	source
 APP_AUTHOR	:=	"MasaGratoR"
-APP_VERSION	:=	"1.0.1"
+APP_VERSION	:=	"1.0.2"
 
 #---------------------------------------------------------------------------------
 # options for code generation
