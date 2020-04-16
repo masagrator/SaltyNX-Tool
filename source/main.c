@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <dirent.h>
 
 #include <switch.h>
 
@@ -21,8 +22,19 @@ bool CheckPort () {
 
 int main(int argc, char **argv)
 {
+	bool log = false;
 	AppletType at = appletGetAppletType();
 	consoleInit(NULL);
+	DIR* flags_dir = opendir("sdmc:/SaltySD/flags");
+	if (!flags_dir) {
+		mkdir("sdmc:/SaltySD/flags", ACCESSPERMS);
+	}
+	else closedir(flags_dir);
+	FILE* logflag = fopen("sdmc:/SaltySD/flags/log.flag", "r");
+	if (logflag) {
+		log = true;
+		fclose(logflag);
+	}
 	FILE *disable_flag = fopen("sdmc:/SaltySD/flags/disable.flag", "r");
 
 	if (disable_flag) {
@@ -43,6 +55,8 @@ disabled:
 	remove("sdmc:/SaltySD/FPSoffset.hex");
 	printf("SaltyNX is disabled.\n\n");
 	printf("To enable loading SaltyNX, press A.\n");
+	if (log == true) printf("Press ZL to disable log writing.\n");
+	else printf("Press ZL to enable log writing.\n");
 	printf("Press X to exit.\n");
 	consoleUpdate(NULL);
 	while(appletMainLoop())
@@ -57,6 +71,21 @@ disabled:
 			consoleClear();
 			goto normal;
 		}
+		else if (kDown & KEY_ZL) {
+			if (log == true) {
+				remove("sdmc:/SaltySD/flags/log.flag");
+				log = false;
+				consoleClear();
+				goto disabled;
+			}
+			else {
+				logflag = fopen("sdmc:/SaltySD/flags/log.flag", "w");
+				fclose(logflag);
+				log = true;
+				consoleClear();
+				goto disabled;
+			}
+		}
 	}
 	goto close;
 			
@@ -69,6 +98,8 @@ normal:
 	else printf(CONSOLE_RED "Checking SaltyNX is not possible! Run homebrew in Applet Mode!\n");
 	printf("SaltyNX is enabled.\n\n");
 	printf("To disable loading SaltyNX, press A.\n");
+	if (log == true) printf("Press ZL to disable log writing.\n");
+	else printf("Press ZL to enable log writing.\n");
 	printf("Press X to exit.\n");
 	consoleUpdate(NULL);
 	while(appletMainLoop())
@@ -81,6 +112,21 @@ normal:
 			fclose(disableflag);
 			consoleClear();
 			goto disabled;
+		}
+		else if (kDown & KEY_ZL) {
+			if (log == true) {
+				remove("sdmc:/SaltySD/flags/log.flag");
+				log = false;
+				consoleClear();
+				goto normal;
+			}
+			else {
+				logflag = fopen("sdmc:/SaltySD/flags/log.flag", "w");
+				fclose(logflag);
+				log = true;
+				consoleClear();
+				goto normal;
+			}
 		}
 	}
 	goto close;
