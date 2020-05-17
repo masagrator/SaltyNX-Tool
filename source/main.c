@@ -17,6 +17,15 @@ bool CheckPort () {
 	}
 	svcCloseHandle(saltysd);
 	if (ret != 0x0) return false;
+	for (int i = 0; i < 200; i++)
+	{
+		ret = svcConnectToNamedPort(&saltysd, "InjectServ");
+		svcSleepThread(1000*1000);
+
+		if (!ret) break;
+	}
+	svcCloseHandle(saltysd);
+	if (ret != 0x0) return false;
 	else return true;
 }
 
