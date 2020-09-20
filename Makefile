@@ -37,11 +37,20 @@ include $(DEVKITPRO)/libnx/switch_rules
 #   of a homebrew executable (.nro). This is intended to be used for sysmodules.
 #   NACP building is skipped as well.
 #---------------------------------------------------------------------------------
-TARGET		:=	$(notdir $(CURDIR))
+TARGET		:=	SaltyNX-Tool
+ICON		:=	res/icon.jpg
 BUILD		:=	build
 SOURCES		:=	source
-APP_AUTHOR	:=	"MasaGratoR"
-APP_VERSION	:=	"1.0.4"
+DATA		:=	data
+INCLUDES	:=	include
+APP_TITLE   :=  SaltyNX-Tool
+APP_AUTHOR  :=  MasaGratoR
+APP_VERSION :=  1.1.0
+ROMFS		:=	romfs
+
+ROMFS				:=	res/
+BOREALIS_PATH		:=	libs/borealis
+BOREALIS_RESOURCES	:=	romfs:/
 
 #---------------------------------------------------------------------------------
 # options for code generation
@@ -51,9 +60,12 @@ ARCH	:=	-march=armv8-a+crc+crypto -mtune=cortex-a57 -mtp=soft -fPIE
 CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
 			$(ARCH) $(DEFINES)
 
-CFLAGS	+=	$(INCLUDE) -D__SWITCH__
+CFLAGS	+=	$(INCLUDE) -D__SWITCH__ \
+			-DBOREALIS_RESOURCES="\"$(BOREALIS_RESOURCES)\"" \
+			-DAPP_VERSION="\"$(APP_VERSION)\"" \
+			-DAPP_TITLE="\"$(APP_TITLE)\"" -DAPP_TITLE_LOWER="\"$(TARGET)\""
 
-CXXFLAGS	:= $(CFLAGS) -fno-rtti -fno-exceptions
+CXXFLAGS	:= $(CFLAGS) -std=c++1z -O2
 
 ASFLAGS	:=	-g $(ARCH)
 LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs -g $(ARCH) -Wl,-Map,$(notdir $*.map)
@@ -66,6 +78,7 @@ LIBS	:= -lnx
 #---------------------------------------------------------------------------------
 LIBDIRS	:= $(PORTLIBS) $(LIBNX)
 
+include $(TOPDIR)/libs/borealis/library/borealis.mk
 
 #---------------------------------------------------------------------------------
 # no real need to edit anything past this point unless you need to add additional
@@ -161,7 +174,7 @@ all: $(BUILD)
 
 $(BUILD):
 	@[ -d $@ ] || mkdir -p $@
-	@$(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
+	@MSYS2_ARG_CONV_EXCL="-D;$(MSYS2_ARG_CONV_EXCL)" $(MAKE) --no-print-directory -C $(BUILD) -f $(CURDIR)/Makefile
 
 #---------------------------------------------------------------------------------
 clean:
