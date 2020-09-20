@@ -1,19 +1,20 @@
-## reset-parental-controls
+# SaltyNX-Tool
+To manage functions of this SaltyNX fork min. 0.2.0a
+https://github.com/masagrator/SaltyNX
 
-An easy way to change the pin for parental controls for the Nintendo Switch! (cfw required)
+To use only in Applet mode. Title replacement mode in 99.9% of cases will block function responsible for checking if SaltyNX is alive and can even crash SaltyNX.
 
-----
+If you want to disable\enable log writing, press **ZL**.
 
-## Features
+---
 
-- Set / change the pin.
+# Troubleshooting
 
-- Delete parental controls pin.
+If SaltyNX was not injected, it crashed or SaltyNX-Tool can't check if it's running, you will see... Red Screen of Death.
+![error_image](https://github.com/masagrator/SaltyNX-Tool/blob/master/error.jpg?raw=true)
 
-- Unlink the parental control mobile app from your account.
+If you will see red text with first line:
+- "SaltyNX is not injected!!" - check if files were copied properly and try to restart Switch. 
+- "Checking SaltyNX is not possible! Run homebrew in Applet mode!" - run homebrew from Album hbmenu
 
-----
-
-## Support TotalJustice work
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P81CQOY)
+Otherwise it means CFW can't handle it.
