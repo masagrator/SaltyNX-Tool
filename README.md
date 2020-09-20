@@ -11,7 +11,6 @@ If you want to disable\enable log writing, press **ZL**.
 # Troubleshooting
 
 If SaltyNX was not injected, it crashed or SaltyNX-Tool can't check if it's running, you will see... Red Screen of Death.
-![error_image](https://github.com/masagrator/SaltyNX-Tool/blob/master/error.jpg?raw=true)
 
 If you will see red text with first line:
 - "SaltyNX is not injected!!" - check if files were copied properly and try to restart Switch. 
