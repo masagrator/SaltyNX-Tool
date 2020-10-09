@@ -5,37 +5,31 @@
 #include "About_tab.hpp"
 
 bool CheckPort () {
-	Result ret;
 	Handle saltysd;
-	for (int i = 0; i < 200; i++)
-	{
-		ret = svcConnectToNamedPort(&saltysd, "InjectServ");
-		svcSleepThread(1000*1000);
-
-		if (!ret) break;
+	for (int i = 0; i < 34; i++) {
+		if (R_SUCCEEDED(svcConnectToNamedPort(&saltysd, "InjectServ"))) {
+			svcCloseHandle(saltysd);
+			break;
+		}
+		else {
+			if (i == 33) return false;
+			svcSleepThread(1'000'000);
+		}
 	}
-	svcCloseHandle(saltysd);
-	if (ret != 0x0) return false;
-	for (int i = 0; i < 200; i++)
-	{
-		ret = svcConnectToNamedPort(&saltysd, "InjectServ");
-		svcSleepThread(1000*1000);
-
-		if (!ret) break;
+	for (int i = 0; i < 34; i++) {
+		if (R_SUCCEEDED(svcConnectToNamedPort(&saltysd, "InjectServ"))) {
+			svcCloseHandle(saltysd);
+			return true;
+		}
+		else svcSleepThread(1'000'000);
 	}
-	svcCloseHandle(saltysd);
-	if (ret != 0x0) return false;
-	else return true;
+	return false;
 }
 
 bool isLogging = false;
 bool isDisabled = false;
 bool isAlbum = false;
 bool isSaltyActive = false;
-
-void init_app(void) {}
-
-void exit_app(void) {}
 
 int main(int argc, char *argv[])
 {

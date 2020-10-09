@@ -1,7 +1,7 @@
 #include "about_tab.hpp"
 
 AboutTab::AboutTab() {		
-	brls::Label* Label1 = new brls::Label(brls::LabelStyle::REGULAR, "SaltyNX-Tool 1.1", false);
+	brls::Label* Label1 = new brls::Label(brls::LabelStyle::REGULAR, "SaltyNX-Tool " APP_VERSION, false);
 	this->addView(Label1);
 
 	brls::Label* Label2 = new brls::Label(brls::LabelStyle::MEDIUM, "Research & Development of SaltyNX: Shiny Quagsire\nDevelopment of SaltyNX and SaltyNX-Tool: MasaGratoR", true);
