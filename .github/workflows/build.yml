@@ -7,17 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     container: devkitpro/devkita64:latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           submodules: true
-
-      - name: Install dependencies
-        run: dkp-pacman -Syu --noconfirm --needed deko3d uam switch-cmake switch-pkg-config
 
       - name: Build
         run: make
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: SaltyNX-Tool
           path: SaltyNX-Tool.nro
