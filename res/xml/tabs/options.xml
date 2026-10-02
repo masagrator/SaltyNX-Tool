@@ -45,6 +45,28 @@
                 marginBottom="30"
                 text="Enable/Disable logging (.log files are in SaltySD folder)" />
 
+            <brls:BooleanCell
+                id="blockFileStats"
+                title="Block file read hooking for read speed" />
+
+            <brls:BooleanCell
+                id="nvnCounters"
+                title="Enable dumping info from NVN counters" />
+
+            <brls:Label
+                width="auto"
+                height="auto"
+                fontSize="16"
+                textColor="@theme/brls/header/subtitle"
+                marginLeft="20"
+                marginTop="12"
+                marginBottom="30"
+                text="Some games may crash" />
+
+            <brls:BooleanCell
+                id="noLogo"
+                title="Disable showing logo on game&apos;s boot" />
+
         </brls:Box>
 
     </brls:ScrollingFrame>

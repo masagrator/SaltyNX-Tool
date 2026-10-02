@@ -12,4 +12,7 @@ class OptionsTab : public brls::Box
   private:
     BRLS_BIND(brls::BooleanCell, status, "status");
     BRLS_BIND(brls::BooleanCell, logs, "logs");
+    BRLS_BIND(brls::BooleanCell, blockFileStats, "blockFileStats");
+    BRLS_BIND(brls::BooleanCell, nvnCounters, "nvnCounters");
+    BRLS_BIND(brls::BooleanCell, noLogo, "noLogo");
 };
