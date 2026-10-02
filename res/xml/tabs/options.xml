@@ -43,7 +43,7 @@
                 marginLeft="20"
                 marginTop="12"
                 marginBottom="30"
-                text="Enable/Disable logging (.log files are in SaltyNX folder)" />
+                text="Enable/Disable logging (.log files are in SaltySD folder)" />
 
         </brls:Box>
 
