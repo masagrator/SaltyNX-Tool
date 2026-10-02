@@ -1,0 +1,52 @@
+<brls:Box
+    width="auto"
+    height="auto">
+
+    <brls:ScrollingFrame
+        width="auto"
+        height="auto"
+        grow="1.0">
+
+        <brls:Box
+            width="auto"
+            height="auto"
+            axis="column"
+            alignItems="stretch"
+            paddingTop="@style/brls/sidebar/padding_top"
+            paddingRight="@style/brls/sidebar/padding_right"
+            paddingBottom="@style/brls/sidebar/padding_bottom"
+            paddingLeft="@style/brls/sidebar/padding_left">
+
+            <brls:BooleanCell
+                id="status"
+                title="Status" />
+
+            <brls:Label
+                width="auto"
+                height="auto"
+                fontSize="16"
+                textColor="@theme/brls/header/subtitle"
+                marginLeft="20"
+                marginTop="12"
+                marginBottom="30"
+                text="Enable/Disable SaltyNX (it doesn't kill process)" />
+
+            <brls:BooleanCell
+                id="logs"
+                title="Logs" />
+
+            <brls:Label
+                width="auto"
+                height="auto"
+                fontSize="16"
+                textColor="@theme/brls/header/subtitle"
+                marginLeft="20"
+                marginTop="12"
+                marginBottom="30"
+                text="Enable/Disable logging (.log files are in SaltyNX folder)" />
+
+        </brls:Box>
+
+    </brls:ScrollingFrame>
+
+</brls:Box>

@@ -1,0 +1,45 @@
+<brls:Box
+    width="auto"
+    height="auto">
+
+    <brls:ScrollingFrame
+        width="auto"
+        height="auto"
+        grow="1.0">
+
+        <brls:Box
+            width="auto"
+            height="auto"
+            axis="column"
+            alignItems="stretch"
+            paddingTop="@style/brls/sidebar/padding_top"
+            paddingRight="@style/brls/sidebar/padding_right"
+            paddingBottom="@style/brls/sidebar/padding_bottom"
+            paddingLeft="@style/brls/sidebar/padding_left">
+
+            <brls:Label
+                id="version"
+                width="auto"
+                height="auto"
+                fontSize="28"
+                marginBottom="30" />
+
+            <brls:Label
+                width="auto"
+                height="auto"
+                fontSize="20"
+                marginBottom="30"
+                text="Research &amp; Development of SaltyNX: Shiny Quagsire&#10;Development of SaltyNX and SaltyNX-Tool: MasaGratoR" />
+
+            <brls:Label
+                width="auto"
+                height="auto"
+                fontSize="16"
+                textColor="@theme/brls/header/subtitle"
+                text="Copyright (C) 2020 MasaGratoR&#10;This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation version 3 of the License. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program.  If not, see https://www.gnu.org/licenses/" />
+
+        </brls:Box>
+
+    </brls:ScrollingFrame>
+
+</brls:Box>

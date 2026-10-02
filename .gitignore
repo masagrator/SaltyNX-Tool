@@ -1,6 +1,7 @@
-*.nro
 *.elf
 *.nacp
-build
-su
+*.nro
 .vscode
+build
+build*/
+su

@@ -2,13 +2,13 @@
 
 #include <borealis.hpp>
 
-class AboutTab : public brls::List
+class AboutTab : public brls::Box
 {
-    public:
-        AboutTab();
+  public:
+    AboutTab();
 
-        View* getDefaultFocus() override
-        {
-            return nullptr;
-        }
+    static brls::View* create();
+
+  private:
+    BRLS_BIND(brls::Label, version, "version");
 };
