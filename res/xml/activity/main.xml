@@ -1,0 +1,19 @@
+<brls:AppletFrame
+    iconInterpolation="linear"
+    footerHidden="false">
+
+    <brls:TabFrame
+        title="SaltyNX-Tool"
+        icon="@res/icon.jpg">
+
+        <brls:Tab label="Options">
+            <OptionsTab />
+        </brls:Tab>
+
+        <brls:Tab label="About">
+            <AboutTab />
+        </brls:Tab>
+
+    </brls:TabFrame>
+
+</brls:AppletFrame>
