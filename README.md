@@ -2,7 +2,7 @@
 To manage functions of this SaltyNX fork min. 2.1.0
 https://github.com/masagrator/SaltyNX
 
-To use only in Applet mode. Title replacement mode in 99.9% of cases will block function responsible for checking if SaltyNX is alive and can even crash SaltyNX.
+To use only in Applet mode.
 
 ## Building
 UI is built with [xfangfang/borealis](https://github.com/xfangfang/borealis) using the deko3d renderer.
